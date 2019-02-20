@@ -15,10 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, re_path
-from mysite.views import hello
+from mysite.views import hello, my_homepage_view, current_datetime, hours_ahead
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('hello/', hello),
-    re_path(r)
+    re_path(r'^hello/$', hello),
+    re_path(r'^$', my_homepage_view),
+    path('time/', current_datetime),
+    re_path(r'^time/plus/(\d{1,2})/$', hours_ahead),
+    path('another_time_page/', current_datetime)
 ]
