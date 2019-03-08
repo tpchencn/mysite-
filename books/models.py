@@ -23,7 +23,7 @@ class Author(models.Model):
     email = models.EmailField(blank=True, verbose_name='e-mail')
 
     def __str__(self):
-        return u'%s %' % (self.first_name, self.last_name)
+        return u'%s %s' % (self.first_name, self.last_name)
 
 
 class Book(models.Model):
