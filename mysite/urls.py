@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, re_path
 from mysite.views import hello, my_homepage_view, current_datetime, hours_ahead
+from books.views import search_form, search
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -23,5 +24,7 @@ urlpatterns = [
     re_path(r'^$', my_homepage_view),
     path('time/', current_datetime),
     re_path(r'^time/plus/(\d{1,2})/$', hours_ahead),
-    path('another_time_page/', current_datetime)
+    path('another_time_page/', current_datetime),
+    re_path(r'^search_form/$', search_form),
+    re_path(r'^search/$', search)
 ]

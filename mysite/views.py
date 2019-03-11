@@ -6,7 +6,8 @@ import datetime
 
 
 def hello(request):
-    return HttpResponse("Hello world!")
+    ua = request.is_secure()
+    return HttpResponse("Hello world! your add is :{0} ".format(ua))
 
 
 def my_homepage_view(request):
@@ -34,3 +35,5 @@ def hours_ahead(request, offset):
     html = "In {0} hour(s), it will be {1}".format(offset, dt)
     # return HttpResponse(html)
     return render(request, "hours_ahead.html", context)
+
+
